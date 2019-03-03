@@ -1,1 +1,2 @@
-# Snap-paper-scissors
+# Snap, Paper, Scissors
+
