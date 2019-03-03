@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Snap Paper Scissors Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/snapchatlogo.png">
+  </head>
+  <body background ="images/snapchat_banner.png">
+    <header>
+      <h1>Snap Paper Scissors</h1>
+    </header>
+
+  <div class="grey-banner" align="center">
+    <h1 style="color:yellow; font-family: sans-serif; padding-bottom: 50px">Login with your SnapChat</h1>
+    <div class="my-bitmoji-stickerpicker-icon-target" />
+<script>
+       window.snapKitInit = function () {
+        // Argument 1
+        var bitmojiWebPickerIconClass =
+          'my-bitmoji-stickerpicker-icon-target';
+
+        // Argument 2
+        var uiOptions = {
+          onStickerPickCallback:
+            function onStickerPickCallback(bitmojiImgURL){
+              console.log(bitmojiImgURL);
+            },
+          webpickerPosition: 'bottomRight',
+        };
+
+        // Argument 3
+        var loginParamsObj = {
+          clientId: 'your-clientId',
+          redirectURI: 'your-redirectURI',
+          scopeList: [ // the list of scopes you are approved for
+           'user.bitmoji.avatar',
+           'user.display_name',
+          ],
+        };
+
+        // Mount Bitmoji Icon(s)
+        snap.bitmojikit.mountBitmojiStickerPickerIcons(
+          bitmojiWebPickerIconClass,
+          uiOptions,
+          loginParamsObj,
+        );
+      };
+
+      // Load the SDK asynchronously
+      (function (d, s, id) {
+        var js, sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://sdk.snapkit.com/js/v1/login_bitmoji.js";
+        sjs.parentNode.insertBefore(js, sjs);
+      }(document, 'script', 'bitmojikit-sdk'));
+    </script>
+</div>
+  </body>
+  <p style="color:yellow; font-family: sans-serif; padding-top:70px">or continue <a href="index.html" style="color:yellow">here</a></p>
+
+</html>
